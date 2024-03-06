@@ -10,6 +10,7 @@ pipeline {
                 echo "go please"
                 echo "now go please"
                 echo "aaba ja la ki"
+                echo " gaideu ekchoti matra"
                 
             }
         }
