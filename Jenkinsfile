@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    environment{
+        imageName="foodapp"
+    }
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                sh "docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} ."
             }
         }
     }
