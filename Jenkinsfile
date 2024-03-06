@@ -9,6 +9,7 @@ pipeline {
                 sh "docker build -t ${imageName}:${BUILD_NUMBER} ."
                 echo "go please"
                 echo "now go please"
+                echo "aaba ja la ki"
                 
             }
         }
