@@ -13,6 +13,7 @@ pipeline {
         stage('Clear old build') {
             steps {
                 sh "docker rmi ${imageName}:${oldTag}"
+                echo "build is cleared"
             }
         }
     }
