@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment{
         imageName="foodapp"
+        oldTag = (BUILD_NUMBER as int) - 1
     }
     stages {
         stage('Build') {
@@ -11,7 +12,7 @@ pipeline {
     }
         stage('Clear old build'){
             steps {
-                sh "docker rmi ${imageName}:(${BUILD_NUMBER}-1)"
+                sh "docker rmi ${imageName}:${oldTag}"
             }
     }
     }
