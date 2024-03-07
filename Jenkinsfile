@@ -6,13 +6,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "docker build -t ${imageName}:${BUILD_NUMBER} ."
-                echo "go please"
-                echo "now go please"
-                echo "aaba ja la ki"
-                echo " gaideu ekchoti matra"
-                
+                sh "docker build -t ${imageName}:${BUILD_NUMBER} ."   
             }
-        }
+    }
+        stage('Clear old build'){
+            steps {
+                sh "docker rmi ${imageName}:(${BUILD_NUMBER}-1)"
+            }
     }
 }
