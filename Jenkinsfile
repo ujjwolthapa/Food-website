@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Login'){
             steps{
-                withCredentials([string(credentialsId: 'docker-registry', variable: 'USER'),string(credentialsId: 'credPassName', variable: 'PASS')]) 
+                withCredentials([string(credentialsId: 'docker-registry', variable: 'USER'),string(credentialsId: 'docker-registry', variable: 'PASS')]) 
                 {
                     sh "docker login bromx.tail9b71d.ts.net -u $USER -p $PASS"
                 }
