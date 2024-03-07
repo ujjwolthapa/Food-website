@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Login'){
             steps{
-                withCredentials([string(credentialsId: 'docker-registry', variable: 'USER'),string(credentialsId: 'docker-registry', variable: 'PASS')]) 
+                withCredentials([string(credentialsId: 'registry-user', variable: 'USER'),string(credentialsId: 'registry-pass', variable: 'PASS')]) 
                 {
                     sh "docker login bromx.tail9b71d.ts.net -u $USER -p $PASS"
                 }
@@ -22,7 +22,7 @@ pipeline {
          stage('Push'){
             steps{
                sh "docker push ${imageName}:${BUILD_NUMBER}"
-                
+
             }
         }
     }
